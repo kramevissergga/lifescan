@@ -1908,7 +1908,7 @@ summary._spoiler-active::after {
   .main-page {
     margin-bottom: 6.25rem
   }
-  .main-page>*:not(:last-child) {
+  .main-page>*:not(.main-page__breadcrumbs):not(:last-child) {
     margin-bottom: 5rem
   }
   .home>*:not(:last-child) {
@@ -2335,7 +2335,7 @@ summary._spoiler-active::after {
   .main-page {
     margin-bottom: 5rem
   }
-  .main-page>*:not(:last-child) {
+  .main-page>*:not(.main-page__breadcrumbs):not(:last-child) {
     margin-bottom: 2.5rem
   }
   .home>*:not(:last-child) {
@@ -2366,12 +2366,12 @@ summary._spoiler-active::after {
     }
   }
   @supports (margin-bottom:clamp(2.5rem ,1.476109215rem + 4.550625711vw ,5rem)) {
-    .main-page>*:not(:last-child) {
+    .main-page>*:not(.main-page__breadcrumbs):not(:last-child) {
       margin-bottom: clamp(2.5rem ,1.476109215rem + 4.550625711vw ,5rem)
     }
   }
   @supports not (margin-bottom:clamp(2.5rem ,1.476109215rem + 4.550625711vw ,5rem)) {
-    .main-page>*:not(:last-child) {
+    .main-page>*:not(.main-page__breadcrumbs):not(:last-child) {
       margin-bottom: calc(2.5rem + 2.5*(100vw - 22.5rem)/ 54.9375)
     }
   }
