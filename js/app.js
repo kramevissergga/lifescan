@@ -3033,9 +3033,9 @@
     Object.keys;
     const {min: splide_extension_grid_esm_min, max: splide_extension_grid_esm_max, floor: splide_extension_grid_esm_floor, ceil: splide_extension_grid_esm_ceil, abs: splide_extension_grid_esm_abs} = Math;
     document.addEventListener("DOMContentLoaded", (function() {
-        var speakersSliderEl = document.querySelector(".speakers-home__slider");
-        if (speakersSliderEl) {
-            var speakersSlider = new Splide(speakersSliderEl, {
+        var speakersSliderEls = document.querySelectorAll(".speakers-home__slider, .splide--def");
+        speakersSliderEls.forEach((function(sliderEl) {
+            var speakersSlider = new Splide(sliderEl, {
                 perPage: 4,
                 arrows: true,
                 pagination: false,
@@ -3064,7 +3064,7 @@
                 }
             });
             speakersSlider.mount();
-        }
+        }));
     }));
     let addWindowScrollEvent = false;
     setTimeout((() => {
@@ -3086,9 +3086,6 @@
     isSafari ? document.documentElement.classList.add("safari") : null;
     window.addEventListener("load", (function() {
         updateHeaderHeights();
-        setTimeout((() => {
-            window.scrollTo(0, 0);
-        }), 10);
     }));
     window.addEventListener("resize", updateHeaderHeights);
     document.addEventListener("selectCallback", (e => {
@@ -3098,7 +3095,7 @@
         if (e.target.closest("[data-menu-toggle]")) {
             bodyLockToggle(0);
             document.documentElement.classList.toggle("menu-open");
-        } else if (!e.target.closest(".mobile-menu") && document.documentElement.classList.contains("menu-open")) {
+        } else if (!e.target.closest(".menu__body") && document.documentElement.classList.contains("menu-open")) {
             bodyUnlock(0);
             document.documentElement.classList.remove("menu-open");
         }
